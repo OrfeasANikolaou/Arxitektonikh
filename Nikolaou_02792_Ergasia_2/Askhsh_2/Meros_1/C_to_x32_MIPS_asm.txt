@@ -1,0 +1,54 @@
+// CONVERT C CODE TO x32 MIPS asm
+
+/* C code */
+
+όλα είναι int_32
+
+x = 0;
+a = 7 + B[16];
+c = a + x;
+d = 10 + 8;
+f = e + a;
+B[16] = c - 5;
+B[8] = d + a;
+B[12] = a - A[4];
+
+/* Διευκρινησεις */
+
+a...f == $s0...$s5
+A = $s6, B = $s7
+Έστω ότι υπάρχει ο καταχωρητής $s8, και η θέση του είναι 26
+x = $s8
+
+/* ASM code */
+
+# x = 0
+lw $s8, $zero
+
+# a = 7 + B[16]
+lw $t0, 64($s7)
+addi $t1, $t0, 7
+sw $t1, $s0
+
+# c = a + x
+add $s2, $s0, $s8 # mporei na ginei optimize ws: lw $s2, $s0
+
+# d = 10 + 8
+addi $s3, $zero, 10
+addi $s3, $s3, 8		# mporoun na ginoun optimize ws addi $s3, $zero, 18
+
+# f = e + a
+add $s5, $s4, $s0
+
+# B[16] = c - 5
+addi $t0, $s2, -5 
+sw $t0, 64($s7)
+
+# B[8] = d + a
+add $t0, $s3, $s0
+sw $t0, 32($s7)
+
+# B[12] = a - A[4]
+lw $t0, 16($s6)
+sub $t1, $s0, $t0
+sw $t1, 48($s7)
