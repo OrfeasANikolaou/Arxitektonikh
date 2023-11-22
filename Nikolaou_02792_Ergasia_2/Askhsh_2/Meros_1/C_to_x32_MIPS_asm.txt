@@ -2,7 +2,7 @@
 
 /* C code */
 
-όλα είναι int_32
+όλα είναι i32
 
 x = 0;
 a = 7 + B[16];
@@ -17,38 +17,38 @@ B[12] = a - A[4];
 
 a...f == $s0...$s5
 A = $s6, B = $s7
+
 Έστω ότι υπάρχει ο καταχωρητής $s8, και η θέση του είναι 26
 x = $s8
 
 /* ASM code */
 
-# x = 0
-lw $s8, $zero
+# x  = 0;
+addi $s8, $zero, 0 #this is so ugly alla den eimai sigouros an gia lw $s8, $zero prepei na balw dieu8hnhsh sto $zero
 
-# a = 7 + B[16]
-lw $t0, 64($s7)
-addi $t1, $t0, 7
-sw $t1, $s0
+# a = 7 + B[16];
+lw $t0, 64($s7)  #temp0 = B[16];
+addi $s0, t0, 7  #a = temp0 + 7
 
 # c = a + x
-add $s2, $s0, $s8 # mporei na ginei optimize ws: lw $s2, $s0
+add $s2, $s0, $s8
 
 # d = 10 + 8
-addi $s3, $zero, 10
-addi $s3, $s3, 8		# mporoun na ginoun optimize ws addi $s3, $zero, 18
+addi $s3, $zero, 10 # d = 0 + 10   mporw kai li alla den kseroume ta opcodes
+addi $s3, $s3, 8    # d += 8      
 
-# f = e + a
+# f = e + a;
 add $s5, $s4, $s0
 
 # B[16] = c - 5
-addi $t0, $s2, -5 
-sw $t0, 64($s7)
+addi $t0, $s2, -5  #temp0 = c - 5
+sw $t0, 64($s7)   #B[16] = temp0
 
-# B[8] = d + a
-add $t0, $s3, $s0
-sw $t0, 32($s7)
+# B[8] = d + a;
+add $t0, $s3, $s0 #temp = d + a
+sw $t0, 32($s7)   #B[8] = temp0
 
-# B[12] = a - A[4]
-lw $t0, 16($s6)
-sub $t1, $s0, $t0
-sw $t1, 48($s7)
+# B[12] = a - A[4];
+lw $t0, 16($s6)    #temp0 = A[4];
+sub $t1, $s0, $t0  #temp1 = a - temp0;
+sw $t1, 48($s7)    #B[12] = temp1
