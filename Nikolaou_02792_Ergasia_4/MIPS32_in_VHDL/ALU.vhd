@@ -49,15 +49,14 @@ when "010" =>  --add desired alu action
 		ALU_output_mux <= Ainput + Binput;
 when "011" => 
 	ALU_output_mux <= Ainput xor Binput;
+when "100" => -- undef
+		ALU_output_mux <= X"00000000";
+when "101" => -- undef
+		ALU_output_mux <= X"00000000";
 when "110" => --sub desired alu action
 		ALU_output_mux <= Ainput - Binput;
 when "111" => -- set on less than
-	if (Ainput < Binput) then
-		ALU_output_mux <= "00000000000000000000000000000001"; -- one
-	else
-		ALU_output_mux <= "00000000000000000000000000000000"; -- zero
-	end if;
-when others => ALU_output_mux <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; --VHDL Case Statement error: Case Statement choices must cover all possible values of expression
+		ALU_output_mux <= Ainput - Binput;
 end case;
 end process;
 end behavior;

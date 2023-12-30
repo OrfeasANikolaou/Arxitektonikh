@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Successful - Mon Dec 18 10:05:01 2023
+Analysis & Synthesis Status : Successful - Sat Dec 30 12:00:50 2023
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : MIPS32_in_VHDL
-Top-level Entity Name : ALU
+Top-level Entity Name : ALU_block_diagram
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 0
