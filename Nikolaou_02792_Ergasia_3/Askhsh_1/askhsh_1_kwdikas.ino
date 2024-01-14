@@ -1,5 +1,4 @@
 #define LED1 2
-#define LED2 3
 #define LED3 4
 #define LED4 5
 #define LED5 6
@@ -9,6 +8,8 @@
 #define ORANGE 8 
 #define GREEN 9
 #define BUZZER 11
+#define PIR 10
+#define PIR_LED 3
 
 /* START TIME */
 struct time{
@@ -29,12 +30,18 @@ int activate_sonic_sensor(size_t const); //parameter is activation in um
 void handle_distance(int const);
 
 struct time current_time = {0}; // no reason to = 0 but good practice
+
+void handle_pir(void);
+
+#define ENABLE_PHOTORESISTOR 1
+#define ENABLE_ULTRASONIC 1
+#define ENABLE_PIR 1
+
 void setup()
 {
   Serial.begin(9600);
   /* group of 5 leds */
   pinMode(LED1, OUTPUT);
-  pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
   pinMode(LED4, OUTPUT);
   pinMode(LED5, OUTPUT);
@@ -53,24 +60,39 @@ void setup()
   toggle_5_leds(0);
   
   digitalWrite(SONIC_TRGR, 0);
-  current_time = set_time();
-  
+  #if ENABLE_ULTRASONIC
+  	current_time = set_time(); // για να μην ρωταει καθε φορα την ωρα
+  #endif //ENABLE_ULTRASONIC
   pinMode(BUZZER, OUTPUT);
+  
+  pinMode(PIR, INPUT);
+  pinMode(PIR_LED, OUTPUT);
+  analogWrite(PIR_LED, 0);
+  
 }
 
 void loop(){
-  handle_photoresistor();
-  // σε κανονική υλοιποιήση το current_time θα αυξανλωταν
-  if (is_valid(current_time)){ // is valid when [23:00:00,06:00:00]
-    int dist = activate_sonic_sensor(10); // 10 microseconds pulse
-    handle_distance(dist, false);
-    // true flag είναι αρκετά ενωχλητικό διότι εμφανίζει μύνημα
-    // κάθε φορα που αλλάζει η θέση του, και δεν είναι καν
-    // ο σκοπώς του sensor αυτού
-    //handle_distance(dist, true);
-  } 
-  // επρεπε να κανω την εργασια σε remote desktop και δεν γινόταν με χαμηλότερο delay
-  delay(1000);
+  // photoresistor
+  #if ENABLE_PHOTORESISTOR
+  	handle_photoresistor();
+  #endif //ENABLE_PHOTORESISTOR
+  
+  // ultrasonic + piezo
+  #if ENABLE_ULTRASONIC
+  	if (is_valid(current_time)){ // is valid when [23:00:00,06:00:00]
+   	 int dist = activate_sonic_sensor(10); // 10 microseconds pulse
+   	 handle_distance(dist, false);
+   	 // true flag είναι αρκετά ενωχλητικό διότι εμφανίζει μύνημα
+   	 // κάθε φορα που αλλάζει η θέση του, και δεν είναι καν
+   	 // ο σκοπώς του sensor αυτού
+   	 //handle_distance(dist, true);
+  	}
+  #endif //ENABLE_ULTRASONIC
+  
+  // pir
+  #if ENABLE_PIR
+    handle_pir();
+  #endif //ENABLE_PIR
 }
 struct time set_time(void){
   struct time ret;
@@ -134,7 +156,6 @@ void toggle_5_leds(int const t){
   // δέχεται τίποτα και να κάνει όντως toggle κάθε φορά που
   // καλλείται
  	digitalWrite(LED1, t); 
-  	digitalWrite(LED2, t);
   	digitalWrite(LED3, t);
   	digitalWrite(LED4, t);
   	digitalWrite(LED5, t);
@@ -186,7 +207,7 @@ void handle_distance(int const d, bool const flag){
    	 digitalWrite(RED, 1);
      Serial.println("Proximity sensor message: distance <=25");
      Serial.println("Proximity sensor message: Light: RED");
-     freqKHz = 1000;
+     freqKHz = 4000;
      select[0]=1;select[1]=0;select[2]=0;
    	}
     // Warning distance
@@ -196,7 +217,7 @@ void handle_distance(int const d, bool const flag){
    	 digitalWrite(RED, 0);
      Serial.println("Proximity sensor message: 25 <= distance <=50");
      Serial.println("Proximity sensor message: Light: ORANGE");
-     freqKHz = 100;
+     freqKHz = 2000;
      select[0]=0;select[1]=1;select[2]=0;
   	}
     // Safe distance
@@ -206,12 +227,43 @@ void handle_distance(int const d, bool const flag){
    	 digitalWrite(RED, 0);
      Serial.println("Proximity sensor message: 50 < distance");
      Serial.println("Proximity sensor message: Light: GREEN");
-     freqKHz = 10;
+     freqKHz = 1000;
      select[0]=0;select[1]=0;select[2]=1;
   	}
   }
   tone(BUZZER, freqKHz);
-  delay(1000);
-  noTone(BUZZER);
+ 
+}
+
+void handle_pir(void){
+  // προηγουμενη κατασταση για να μην εμφανιζει μυνηματα καθε φορα
+  static int PIR_STATE = 0;
+  static int val = 0;
+  static int brightness = 0;
+  val = digitalRead(PIR);
+  
+  // if something moved
+  if (val == 1){
+    //switch on lights
+    brightness = 255;
+    analogWrite(PIR_LED, brightness);
+    // if was off and now on, show msg
+    if (PIR_STATE == 0) {
+     Serial.println("PIR message: Motion detected!");
+     PIR_STATE = 1;
+    }
+  }
+  else {
+    // slowly turn down the light
+    brightness -= 5;
+    // in case negative values
+    if (brightness < 0) { brightness = 0;};
+    analogWrite(PIR_LED, brightness);
+    // if it was on and now off, show msg
+    if (PIR_STATE == 1){
+      Serial.println("PIR message: Motion stopped!");
+      PIR_STATE = 0;
+    }
+  }
   delay(100);
 }
