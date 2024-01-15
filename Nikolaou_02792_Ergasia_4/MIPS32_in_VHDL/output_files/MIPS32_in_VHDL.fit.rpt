@@ -1,5 +1,5 @@
 Fitter report for MIPS32_in_VHDL
-Sat Dec 30 12:01:23 2023
+Mon Jan 15 11:24:34 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Sat Dec 30 12:01:23 2023       ;
+; Fitter Status                   ; Successful - Mon Jan 15 11:24:34 2024       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS32_in_VHDL                              ;
 ; Top-level Entity Name           ; ALU_block_diagram                           ;
@@ -157,9 +157,9 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 3            ;   0.5%      ;
 ;     Processor 4            ;   0.5%      ;
 ;     Processor 5            ;   0.5%      ;
-;     Processor 6            ;   0.5%      ;
-;     Processor 7            ;   0.5%      ;
-;     Processor 8            ;   0.5%      ;
+;     Processor 6            ;   0.4%      ;
+;     Processor 7            ;   0.4%      ;
+;     Processor 8            ;   0.4%      ;
 ;     Processor 9            ;   0.4%      ;
 ;     Processor 10           ;   0.4%      ;
 ;     Processor 11           ;   0.4%      ;
@@ -2285,7 +2285,7 @@ Info (184021): Fitter periphery placement operations ending: elapsed time is 00:
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:09
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:07
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'MIPS32_in_VHDL.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
@@ -2306,7 +2306,7 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.15 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.14 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2314,10 +2314,10 @@ Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:04
 Info (144001): Generated suppressed messages file /home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/output_files/MIPS32_in_VHDL.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 2412 megabytes
-    Info: Processing ended: Sat Dec 30 12:01:23 2023
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:01:20
+    Info: Peak virtual memory: 2411 megabytes
+    Info: Processing ended: Mon Jan 15 11:24:34 2024
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:01:21
 
 
 +----------------------------+

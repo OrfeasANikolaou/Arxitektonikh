@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "12/30/2023 11:40:00"
+-- Generated on "01/15/2024 11:15:34"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          control_unit_block_diagram
 -- 
@@ -77,44 +77,34 @@ BEGIN
 	reset => reset
 	);
 
--- clock
-t_prcs_clock: PROCESS
-BEGIN
-	FOR i IN 1 TO 16
-	LOOP
-		clock <= '0';
-		WAIT FOR 30000 ps;
-		clock <= '1';
-		WAIT FOR 30000 ps;
-	END LOOP;
-	clock <= '0';
-	WAIT FOR 30000 ps;
-	clock <= '1';
-WAIT;
-END PROCESS t_prcs_clock;
-
 -- reset
 t_prcs_reset: PROCESS
 BEGIN
-LOOP
 	reset <= '0';
-	WAIT FOR 100000 ps;
-	reset <= '1';
-	WAIT FOR 100000 ps;
-	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
-END LOOP;
+WAIT;
 END PROCESS t_prcs_reset;
+
+-- clock
+t_prcs_clock: PROCESS
+BEGIN
+	clock <= '0';
+WAIT;
+END PROCESS t_prcs_clock;
 -- Opcode[5]
 t_prcs_Opcode_5: PROCESS
 BEGIN
 	Opcode(5) <= '0';
-	WAIT FOR 60000 ps;
+	WAIT FOR 70000 ps;
 	Opcode(5) <= '1';
-	WAIT FOR 80000 ps;
+	WAIT FOR 90000 ps;
 	Opcode(5) <= '0';
-	WAIT FOR 230000 ps;
+	WAIT FOR 300000 ps;
 	Opcode(5) <= '1';
-	WAIT FOR 160000 ps;
+	WAIT FOR 60000 ps;
+	Opcode(5) <= '0';
+	WAIT FOR 50000 ps;
+	Opcode(5) <= '1';
+	WAIT FOR 120000 ps;
 	Opcode(5) <= '0';
 WAIT;
 END PROCESS t_prcs_Opcode_5;
@@ -122,9 +112,9 @@ END PROCESS t_prcs_Opcode_5;
 t_prcs_Opcode_4: PROCESS
 BEGIN
 	Opcode(4) <= '0';
-	WAIT FOR 370000 ps;
+	WAIT FOR 570000 ps;
 	Opcode(4) <= '1';
-	WAIT FOR 160000 ps;
+	WAIT FOR 120000 ps;
 	Opcode(4) <= '0';
 WAIT;
 END PROCESS t_prcs_Opcode_4;
@@ -132,13 +122,13 @@ END PROCESS t_prcs_Opcode_4;
 t_prcs_Opcode_3: PROCESS
 BEGIN
 	Opcode(3) <= '0';
-	WAIT FOR 100000 ps;
+	WAIT FOR 120000 ps;
 	Opcode(3) <= '1';
 	WAIT FOR 40000 ps;
 	Opcode(3) <= '0';
-	WAIT FOR 230000 ps;
+	WAIT FOR 410000 ps;
 	Opcode(3) <= '1';
-	WAIT FOR 160000 ps;
+	WAIT FOR 120000 ps;
 	Opcode(3) <= '0';
 WAIT;
 END PROCESS t_prcs_Opcode_3;
@@ -146,13 +136,13 @@ END PROCESS t_prcs_Opcode_3;
 t_prcs_Opcode_2: PROCESS
 BEGIN
 	Opcode(2) <= '0';
-	WAIT FOR 170000 ps;
+	WAIT FOR 210000 ps;
 	Opcode(2) <= '1';
-	WAIT FOR 70000 ps;
+	WAIT FOR 80000 ps;
 	Opcode(2) <= '0';
-	WAIT FOR 130000 ps;
+	WAIT FOR 280000 ps;
 	Opcode(2) <= '1';
-	WAIT FOR 160000 ps;
+	WAIT FOR 120000 ps;
 	Opcode(2) <= '0';
 WAIT;
 END PROCESS t_prcs_Opcode_2;
@@ -160,17 +150,17 @@ END PROCESS t_prcs_Opcode_2;
 t_prcs_Opcode_1: PROCESS
 BEGIN
 	Opcode(1) <= '0';
-	WAIT FOR 60000 ps;
+	WAIT FOR 70000 ps;
+	Opcode(1) <= '1';
+	WAIT FOR 90000 ps;
+	Opcode(1) <= '0';
+	WAIT FOR 170000 ps;
 	Opcode(1) <= '1';
 	WAIT FOR 80000 ps;
 	Opcode(1) <= '0';
-	WAIT FOR 120000 ps;
-	Opcode(1) <= '1';
-	WAIT FOR 70000 ps;
-	Opcode(1) <= '0';
-	WAIT FOR 40000 ps;
-	Opcode(1) <= '1';
 	WAIT FOR 160000 ps;
+	Opcode(1) <= '1';
+	WAIT FOR 120000 ps;
 	Opcode(1) <= '0';
 WAIT;
 END PROCESS t_prcs_Opcode_1;
@@ -178,13 +168,13 @@ END PROCESS t_prcs_Opcode_1;
 t_prcs_Opcode_0: PROCESS
 BEGIN
 	Opcode(0) <= '0';
-	WAIT FOR 60000 ps;
+	WAIT FOR 70000 ps;
 	Opcode(0) <= '1';
-	WAIT FOR 80000 ps;
+	WAIT FOR 90000 ps;
 	Opcode(0) <= '0';
-	WAIT FOR 230000 ps;
+	WAIT FOR 410000 ps;
 	Opcode(0) <= '1';
-	WAIT FOR 160000 ps;
+	WAIT FOR 120000 ps;
 	Opcode(0) <= '0';
 WAIT;
 END PROCESS t_prcs_Opcode_0;

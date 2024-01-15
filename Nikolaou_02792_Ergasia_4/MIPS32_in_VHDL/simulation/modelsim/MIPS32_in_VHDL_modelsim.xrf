@@ -4,6 +4,7 @@ source_file = 1, /home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Niko
 source_file = 1, /home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/control_unit_block_diagram.bdf
 source_file = 1, /home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/ALU_block_diagram.bdf
 source_file = 1, /home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/Waveform.vwf
+source_file = 1, Waveform1.vwf
 source_file = 1, /home/orfeas/Documentos/FUCKYOUINTEL/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, /home/orfeas/Documentos/FUCKYOUINTEL/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
 source_file = 1, /home/orfeas/Documentos/FUCKYOUINTEL/quartus/libraries/vhdl/ieee/timing_b.vhd

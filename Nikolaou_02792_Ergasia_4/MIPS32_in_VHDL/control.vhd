@@ -24,7 +24,7 @@ Sw			<= '1' when Opcode = "101011" else '0';
 Beq		<= '1' when Opcode = "000100" else '0';
 Ji			<= '1' when Opcode = "000010" else '0';
 RegDst <= R_format;
-ALUSrc <= not R_format;
+ALUSrc <= not R_format and not Beq;
 MemtoReg <= Lw;
 RegWrite <= R_format or Lw;
 MemRead <= Lw;

@@ -56,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 	(input)
 	(rect 232 256 400 272)
 	(text "INPUT" (rect 125 0 154 10)(font "Arial" (font_size 6)))
-	(text "Opcode[5..0]" (rect 5 0 68 11)(font "Arial" ))
+	(text "Opcode[5..0]" (rect 5 0 67 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
