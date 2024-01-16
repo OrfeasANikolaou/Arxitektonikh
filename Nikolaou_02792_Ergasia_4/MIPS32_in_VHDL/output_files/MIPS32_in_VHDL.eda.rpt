@@ -1,5 +1,5 @@
 EDA Netlist Writer report for MIPS32_in_VHDL
-Tue Jan 16 00:47:09 2024
+Tue Jan 16 02:37:41 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue Jan 16 00:47:09 2024 ;
+; EDA Netlist Writer Status ; Successful - Tue Jan 16 02:37:41 2024 ;
 ; Revision Name             ; MIPS32_in_VHDL                        ;
 ; Top-level Entity Name     ; ALU_block_diagram                     ;
 ; Family                    ; Cyclone V                             ;
@@ -95,13 +95,13 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Tue Jan 16 00:47:08 2024
+    Info: Processing started: Tue Jan 16 02:37:40 2024
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/ MIPS32_in_VHDL -c MIPS32_in_VHDL
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file MIPS32_in_VHDL.vho in folder "/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 678 megabytes
-    Info: Processing ended: Tue Jan 16 00:47:09 2024
+    Info: Processing ended: Tue Jan 16 02:37:41 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

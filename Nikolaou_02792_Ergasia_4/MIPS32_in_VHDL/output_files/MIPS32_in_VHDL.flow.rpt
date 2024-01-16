@@ -1,5 +1,5 @@
 Flow report for MIPS32_in_VHDL
-Tue Jan 16 00:47:09 2024
+Tue Jan 16 02:37:41 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Jan 16 00:47:09 2024       ;
+; Flow Status                     ; Successful - Tue Jan 16 02:37:41 2024       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS32_in_VHDL                              ;
 ; Top-level Entity Name           ; ALU_block_diagram                           ;
@@ -131,7 +131,15 @@ https://fpgasoftware.intel.com/eula.
 ; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 678 MB              ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 671 MB              ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 678 MB              ; 00:00:01                           ;
-; Total                ; 00:01:11     ; --                      ; --                  ; 00:02:15                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 671 MB              ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 678 MB              ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 671 MB              ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 678 MB              ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 671 MB              ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 678 MB              ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 671 MB              ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 678 MB              ; 00:00:01                           ;
+; Total                ; 00:01:17     ; --                      ; --                  ; 00:02:23                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -169,6 +177,14 @@ https://fpgasoftware.intel.com/eula.
 ; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
 ; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
 ; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
+; EDA Netlist Writer   ; localhost.localdomain ; openSUSE Tumbleweed ; 20231228   ; x86_64         ;
 +----------------------+-----------------------+---------------------+------------+----------------+
 
 
@@ -180,6 +196,14 @@ quartus_fit --read_settings_files=off --write_settings_files=off MIPS32_in_VHDL 
 quartus_asm --read_settings_files=off --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL
 quartus_sta MIPS32_in_VHDL -c MIPS32_in_VHDL
 quartus_eda --read_settings_files=off --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL --vector_source=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/Waveform1.vwf --testbench_file=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/ MIPS32_in_VHDL -c MIPS32_in_VHDL
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL --vector_source=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/Waveform1.vwf --testbench_file=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/ MIPS32_in_VHDL -c MIPS32_in_VHDL
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL --vector_source=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/Waveform1.vwf --testbench_file=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/ MIPS32_in_VHDL -c MIPS32_in_VHDL
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL --vector_source=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/Waveform1.vwf --testbench_file=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/ MIPS32_in_VHDL -c MIPS32_in_VHDL
 quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL --vector_source=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/Waveform1.vwf --testbench_file=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/Waveform1.vwf.vht
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/ MIPS32_in_VHDL -c MIPS32_in_VHDL
 quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off MIPS32_in_VHDL -c MIPS32_in_VHDL --vector_source=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/Waveform1.vwf --testbench_file=/home/orfeas/Documentos/Easy_access/Ergasies/Arxitektonikh/Nikolaou_02792_Ergasia_4/MIPS32_in_VHDL/simulation/qsim/Waveform1.vwf.vht
